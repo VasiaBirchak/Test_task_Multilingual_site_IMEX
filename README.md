@@ -92,6 +92,17 @@ AuthorListView:
 Endpoint: /api/authors/
 Retrieves a list of authors.
 Supports a q query parameter to search authors by name.
+
+
+## FEATURE
+All information is given to the user in his language. Determining the user's language by the HTTP Accept-Language header, if the desired language is not in "Languages" or the corresponding model field is empty or undefined - return data in English. For example, you can change the language in the settings
+
+ - **Language Settings:**
+![Language Settings](images/settings.png) 
+
+ - **Request with Accept-Language uk:**
+![Request](images/request.png) 
+
  - **API article ist:**
 ![Article list api](images/article_list_api.png) 
 
@@ -101,8 +112,14 @@ Supports a q query parameter to search authors by name.
 - **Home page (Article List):**
 ![Article List](images/article_list.png)
 
+- **Home page (Article List English):**
+![Article List English](images/article_list_en.png)
+
 - **Article Detail:**
 ![Article Detail](images/article_detail.png) 
+
+- **Article Detail English:**
+![Article Detail English](images/article_detail_en.png) 
 
 - **Authors List:**
 ![Authors](images/authors.png) 
@@ -110,3 +127,5 @@ Supports a q query parameter to search authors by name.
 - **Author Detail:**
 ![Author Detail](images/author_detail.png) 
 
+- **Author Detail English:**
+![Author Detail english](images/author_detail_en.png) 

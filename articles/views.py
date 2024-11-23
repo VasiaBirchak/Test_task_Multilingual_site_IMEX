@@ -5,7 +5,8 @@ from django.utils.translation import get_language
 
 def home(request):
     language_code = get_language()
-    articles = Article.objects.all()
+    title_field = f'title_{language_code}'
+    articles = Article.objects.all().order_by(title_field)
     for article in articles:
         article.title = article.get_title(language_code)
         article.content = article.get_content(language_code)
@@ -22,6 +23,7 @@ def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
     article.title_localized = article.get_title(language_code)
     article.content_localized = article.get_content(language_code)
+    article.author.about_localized = article.author.get_about(language_code)
     return render(request, 'articles/article_detail.html', {'article': article})
 
 

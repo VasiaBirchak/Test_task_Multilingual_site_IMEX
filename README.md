@@ -62,3 +62,51 @@ Run the Tests:
 ```bash
 pytest
 ```
+Project Structure
+
+Models (articles/models.py)
+Author: Represents an author with the following fields:
+name: Author's name.
+birthday: Date of birth.
+about & about_short: Translatable fields for detailed and short descriptions.
+Includes:
+
+get_about(language_code): Fetches the "about" content in the specified language.
+Article: Represents an article with the following fields:
+slug: Unique identifier for the article.
+date_added: Timestamp when the article was created.
+title & content: Translatable fields for title and content.
+author: Foreign key linking to an Author.
+Includes:
+
+get_title(language_code): Fetches the article title in the specified language.
+get_content(language_code): Fetches the article content in the specified language.
+
+
+API Views (api/views.py)
+ArticleListView:
+Endpoint: /api/articles/
+Retrieves a list of articles.
+Supports a q query parameter to search articles by English title or content.
+AuthorListView:
+Endpoint: /api/authors/
+Retrieves a list of authors.
+Supports a q query parameter to search authors by name.
+ - **API article ist:**
+![Article list api](images/article_list_api.png) 
+
+ - **API article list with query parameter:**
+![Article list api q](images/article_list_api_q.png) 
+
+- **Home page (Article List):**
+![Article List](images/article_list.png)
+
+ - **Article Detail:**
+![Article Detail](images/article_detail.png) 
+
+ - **Authors List:**
+![Authors](images/authors.png) 
+
+ - **Author Detail:**
+![Author Detail](images/author_detail.png) 
+

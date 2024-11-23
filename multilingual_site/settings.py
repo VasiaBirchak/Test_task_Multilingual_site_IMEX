@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-nv0@tklp^pi@6if3*mr=%31@!j62yt+q4lb9dc*38y5ei0ue$+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testserver', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'rest_framework',
+    'articles',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.LanguageMiddleware',
 ]
 
 ROOT_URLCONF = 'multilingual_site.urls'
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'multilingual_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +80,12 @@ WSGI_APPLICATION = 'multilingual_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'multilingual_site',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -102,8 +111,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+# LANGUAGES = [
+#     ('en', 'English'),
+#     ('uk', 'Ukrainian'),
+#     ('ar', 'Arabic'),
+#     # додайте інші мови
+# ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'  # або динамічно через cookie або сесію
+# LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 

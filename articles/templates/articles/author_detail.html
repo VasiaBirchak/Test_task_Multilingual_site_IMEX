@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ author.name }}</title>
+</head>
+<body>
+    <h1>{{ author.name }}</h1>
+    <p><strong>Birthday:</strong> {{ author.birthday }}</p>
+    <p><strong>About:</strong> {{ author.about_localized }}</p>
+    <h2>Articles by {{ author.name }}</h2>
+    <ul>
+        {% for item in articles %}
+            <li>
+                <a href="{% url 'article-detail' item.slug %}">
+                    {{ item.title_localized }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'authors' %}">Back to Authors</a>
+</body>
+</html>

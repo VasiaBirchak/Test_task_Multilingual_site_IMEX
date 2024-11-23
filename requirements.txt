@@ -8,3 +8,4 @@ pycodestyle==2.12.1
 pyflakes==3.2.0
 sqlparse==0.5.2
 typing_extensions==4.12.2
+pyhton-decouple==3.8

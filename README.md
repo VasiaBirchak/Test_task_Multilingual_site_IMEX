@@ -101,12 +101,12 @@ Supports a q query parameter to search authors by name.
 - **Home page (Article List):**
 ![Article List](images/article_list.png)
 
- - **Article Detail:**
+- **Article Detail:**
 ![Article Detail](images/article_detail.png) 
 
- - **Authors List:**
+- **Authors List:**
 ![Authors](images/authors.png) 
 
- - **Author Detail:**
+- **Author Detail:**
 ![Author Detail](images/author_detail.png) 
 

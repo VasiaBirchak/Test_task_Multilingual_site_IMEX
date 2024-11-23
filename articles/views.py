@@ -34,7 +34,6 @@ def author_detail(request, pk):
     articles = author.articles.all()
     for article in articles:
         article.title_localized = article.get_title(language_code)
-        print(article.title_localized)
     return render(request, 'articles/author_detail.html', {
         'author': author,
         'articles': articles,

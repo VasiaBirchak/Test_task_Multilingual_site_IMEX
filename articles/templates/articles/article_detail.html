@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title_localized }}</title>
+</head>
+<body>
+    <h1>{{ article.title_localized }}</h1>
+    <p>{{ article.content_localized }}</p>
+    <p>
+        Written by 
+        <a href="{% url 'author-detail' article.author.id %}">
+            {{ article.author.name }}
+        </a>
+    </p>
+    <p>{{ article.author.about_localized }}</p>
+    <a href="{% url 'home' %}">Back to Articles</a>
+</body>
+</html>
